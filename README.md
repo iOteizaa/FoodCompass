@@ -4,7 +4,7 @@
 
 > Personal project:
 
-FootballDesk is a web application that recommends restaurants based on user preferences.  
+FoodCompass is a web application that recommends restaurants based on user preferences.  
 Its main goal is to help users discover personalized dining experiences easily.
 
 ## Features
