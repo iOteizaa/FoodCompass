@@ -1,0 +1,316 @@
+:root {
+    --color-primary: #2c3e50;
+    --color-secondary: #3498db;
+    --color-bg: #f5f7fa;
+    --color-card: #ffffff;
+    --color-text: #333333;
+    --color-border: #e0e0e0;
+    --color-bad: #e74c3c;
+    --color-medium: #f39c12;
+    --color-good: #2ecc71;
+    --color-date: #7f8c8d;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+h1 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+h1:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--color-secondary);
+    border-radius: 2px;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+.historial-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.visita-card {
+    background: var(--color-card);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.visita-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+}
+
+.restaurante-nombre {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-primary);
+}
+
+.fecha-visita {
+    font-size: 0.9rem;
+    color: var(--color-date);
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.fecha-visita i {
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.valoracion {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.valoracion.bad {
+    background-color: var(--color-bad);
+    color: white;
+}
+
+.valoracion.medium {
+    background-color: var(--color-medium);
+    color: white;
+}
+
+.valoracion.good {
+    background-color: var(--color-good);
+    color: white;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.username {
+    font-weight: 600;
+}
+
+.comentario {
+    background: var(--color-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    font-style: italic;
+    position: relative;
+    margin-top: 1rem;
+}
+
+.comentario:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 4rem;
+    color: var(--color-border);
+    line-height: 1;
+    z-index: 0;
+}
+
+.no-historial {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--color-card);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.no-historial-icon {
+    font-size: 3rem;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.no-historial h2 {
+    color: var(--color-primary);
+}
+
+.no-historial p {
+    color: #7f8c8d;
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+}
+
+.explore-btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    background: var(--color-secondary);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+    background: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal estilos rápidos */
+#modal-valoracion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#modal-valoracion .modal-box {
+    background: #fff;
+    padding: 2em;
+    border-radius: 10px;
+    min-width: 300px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+#modal-valoracion .modal-box h3 {
+    margin-top: 0;
+}
+
+#modal-valoracion .modal-box label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+#modal-valoracion .modal-box textarea {
+    width: 100%;
+    min-height: 60px;
+}
+
+#modal-valoracion .modal-box input[type="number"] {
+    width: 70px;
+}
+
+#modal-valoracion .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.valoracion-success {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4caf50;
+    color: #fff;
+    padding: 1em 2em;
+    border-radius: 8px;
+    z-index: 10000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 1.1em;
+}
+
+.btn-valorar {
+    display: inline-block;
+    margin-top: 1.2em;
+    margin-left: auto;
+    background: var(--color-secondary);
+    color: #fff;
+    border: none;
+    border-radius: 22px;
+    padding: 0.6em 1.5em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.07);
+}
+
+.btn-valorar:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 18px rgba(44, 62, 80, 0.09);
+}
+
+.btn-valorar:disabled,
+.btn-valorado {
+    background: #bbb;
+    color: #fff;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    padding: 1.5rem;
+}
