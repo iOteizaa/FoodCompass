@@ -41,7 +41,7 @@ git clone https://github.com/iOteizaa/FoodCompass.git
 4. Configure API keys:
 - Add your Google reCAPTCHA (site key and secret key)
 
-5. Configure authentication tokens for user sessions in the following files under the `usuario/` folder:
+5. Configure authentication tokens for user sessions in the following files under the `/public/usuario/` folder:
    - `iniciosesion.php`
    - `checklogin.php`
    - `cerrarsesion.php`
