@@ -61,9 +61,9 @@ git clone https://github.com/iOteizaa/FoodCompass.git
 
 ## Demo
 ### Index Page
-[![Index](public/img/index.PNG)](public/img/index.PNG)  
+[![Index](public/img/index.png)](public/img/index.png)  
 Screenshot of the homepage showing featured restaurants and search bar.
 
 ### Restaurants Page
-[![Restaurants Page](public/img/restaurante.PNG)](public/img/restaurante.PNG)  
+[![Restaurants Page](public/img/restaurante.png)](public/img/restaurante.png)  
 Screenshot of the restaurants page.
