@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             // Enviar reserva
             try {
-                const resp = await fetch('usuario/reservar_mesa.php', {
+                const resp = await fetch('../usuario/reservar_mesa.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ restaurante_id: idx })
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cargarOpiniones(restaurante);
 
             // Horario real desde la API
-            fetch(`enpoints/horarios.php?restaurante_id=${encodeURIComponent(restaurante.id)}`)
+            fetch(`../../enpoints/horarios.php?restaurante_id=${encodeURIComponent(restaurante.id)}`)
                 .then(res => res.json())
                 .then(horarios => {
                     let horarioDiv = document.createElement('div');
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
         opinionesContainer.innerHTML = '<span>Cargando reseñas...</span>';
         try {
             // Petición a la nueva API pasando restaurante_id
-            const resp = await fetch(`endpoints/opiniones.php?restaurante_id=${encodeURIComponent(restaurante.id)}`);
+            const resp = await fetch(`../../endpoints/opiniones.php?restaurante_id=${encodeURIComponent(restaurante.id)}`);
             const opiniones = await resp.json();
 
             if (!opiniones || !opiniones.length) {

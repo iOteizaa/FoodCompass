@@ -53,7 +53,7 @@ async function mostrarRestaurantesPorIds(ids) {
     const lista = document.querySelector('.restaurants-list');
     if (!lista) return;
     try {
-        const response = await fetch('../APIS/restaurantes_por_ids.php', {
+        const response = await fetch('../../endpoints/restaurantes_por_ids.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ids })
@@ -81,7 +81,7 @@ async function anadirTarjeta(categoria) {
     if (!lista) return;
     try {
         // Consulta al backend filtrando por categoría
-        const response = await fetch(`../APIS/restaurantes_por_categoria.php?categoria=${encodeURIComponent(categoria)}`);
+        const response = await fetch(`../../endpoints/restaurantes_por_categoria.php?categoria=${encodeURIComponent(categoria)}`);
         const restaurantes = await response.json();
 
         lista.innerHTML = '';
@@ -175,9 +175,9 @@ async function cargarRestaurantes(orden = '') {
     })();
     let response, json;
     try {
-        let url = '../APIS/restaurante.php';
+        let url = '../../endpoints/restaurante.php';
         if (orden === 'valoracion_desc') {
-            url = '../APIS/restaurantes_mas_valorados.php';
+            url = '../../endpoints/restaurantes_mas_valorados.php';
         }
         response = await fetch(url);
         json = await response.json();
@@ -409,7 +409,7 @@ function setupFavoriteButtons() {
             if (!restaurantId) return;
             btn.disabled = true; // Evita dobles clicks
             try {
-                const response = await fetch('../APIS/favorito.php', {
+                const response = await fetch('../../endpoints/favorito.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ id: restaurantId })
@@ -767,7 +767,7 @@ function setupFilters() {
         // Unificación de filtros: si hay fecha y hora, primero filtra por backend, luego aplica los demás filtros en frontend
         if (currentFilters.fechaHora && currentFilters.fechaHora.fecha && currentFilters.fechaHora.hora) {
             console.log('Filtrando por fecha y hora:', currentFilters.fechaHora);
-            fetch(`../APIS/restaurantes_fecha.php?fecha=${encodeURIComponent(currentFilters.fechaHora.fecha)}&hora=${encodeURIComponent(currentFilters.fechaHora.hora)}`)
+            fetch(`../../endpoints/restaurantes_fecha.php?fecha=${encodeURIComponent(currentFilters.fechaHora.fecha)}&hora=${encodeURIComponent(currentFilters.fechaHora.hora)}`)
                 .then(res => {
                     if (!res.ok) {
                         throw new Error('HTTP status ' + res.status);
@@ -776,7 +776,7 @@ function setupFilters() {
                 })
                 .then(async restaurantes => {
                     console.log('Respuesta del backend (restaurantes_fecha.php):', restaurantes);
-                    window.dataFechaHora = restaurantes; // Para inspección manual
+                    window.dataFechaHora = restaurantes;
                     let filtered = restaurantes;
                     // Si NO hay ningún filtro adicional, muestra todos los restaurantes devueltos por el backend
                     if (!window.currentFilters.search && currentFilters.tag === null && !currentFilters.cocina && !currentFilters.personas) {
